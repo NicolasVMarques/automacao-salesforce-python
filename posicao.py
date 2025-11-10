@@ -1,7 +1,7 @@
 import time
 import pyautogui
 
-time.sleep(10)
+time.sleep(5)
 print(pyautogui.position())
 
 pyautogui.scroll(200)
