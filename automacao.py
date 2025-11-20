@@ -142,7 +142,7 @@ b0 = Button(
     relief = "flat")
 
 b0.place(
-    x = 440, y = 251,
+    x = 300, y = 251,
     width = 100,
     height = 32)
 
