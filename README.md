@@ -1,6 +1,8 @@
 # Automação de Cadastro de Leads no Salesforce  
 ### *Projeto em Python usando PyAutoGUI + Pandas + Tkinter*  
 
+<img src="tela_interface.png" alt="Interface da Automação Salesforce">
+
 ## O que aprendi e quais problemas esse projeto resolveu  
 
 Este projeto representa um avanço significativo na minha habilidade de automatizar processos operacionais usando Python. Durante o desenvolvimento, aprofundei meus conhecimentos em:
