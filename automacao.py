@@ -114,13 +114,13 @@ def btn_clicked():
                 print(f"Lead {contato} indicado (imagem não encontrada)!")
                 tabela.at[index, "STATUS"] = "Indicado pelo Robô"
 
-            # Salva backup caso a automação dê erro
+            # Salva backup caso a automação dê erro ou pause
             tabela.to_excel("backup_lemit_indicados (ROBO).xlsx", index=False)
 
+            # Retorna à tela de leads para inserir o próximo contato
             print("Aguardando 15 segundos para o próximo registro...")
             time.sleep(15)
 
-            # Retorna à tela de leads para inserir o próximo contato
             pyautogui.click(botao_leads_x, botao_leads_y)
             time.sleep(5)
             
