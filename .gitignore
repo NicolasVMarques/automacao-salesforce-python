@@ -2,3 +2,30 @@
 *.xlsx
 img0.png
 Background.png
+
+# --- PYTHON ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# --- PYINSTALLER ---
+build/
+dist/
+*.spec
+*.toc
+*.tmp
+*.zip
+*.bin
+
+# Executável gerado
+*.exe
+
+# --- TEMPORÁRIOS / CACHE DO SISTEMA ---
+*.log
+Thumbs.db
+*.tmp
+
+# --- AMBIENTE VIRTUAL ---
+venv/
+env/
