@@ -23,7 +23,7 @@ botao_novo_lead_x, botao_novo_lead_y = 674, 270
 botao_cancelar_x, botao_cancelar_y = 1143, 151
 # botao_conta_aberta_x, botao_conta_aberta_y = 930,465
 # botao não funciona, precisa colocar pra automação dar refresh na página
-#  
+  
 # Email padrão aplicado quando um contato não possui email
 email_padrao = 'empresario@gmail.com'
 
@@ -114,6 +114,7 @@ def btn_clicked():
                     tabela.at[index, "STATUS"] = "Conta aberta"
 
                     pyautogui.hotkey('ctrl', 'f5')
+                    time.sleep(5)
 
                 else:
                     print(f"Lead {contato} indicado com sucesso!")
