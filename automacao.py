@@ -11,17 +11,19 @@ pyautogui.FAILSAFE = True
 pyautogui.PAUSE = 0.1
 
 # Coordenadas dos campos na interface do Salesforce
-campo_primeiro_nome_x, campo_primeiro_nome_y = 385, 356
-campo_sobrenome_x, campo_sobrenome_y = 1076, 413
-campo_email_x, campo_email_y = 360, 490
-campo_telefone_x, campo_telefone_y = 1074, 489
-campo_razao_social_x, campo_razao_social_y = 427, 545
-campo_cnpj_x, campo_cnpj_y = 771, 546
+campo_primeiro_nome_x, campo_primeiro_nome_y = 365, 375
+campo_sobrenome_x, campo_sobrenome_y = 986, 436
+campo_email_x, campo_email_y = 257, 508
+campo_telefone_x, campo_telefone_y = 1096, 506
+campo_razao_social_x, campo_razao_social_y = 614, 570
+campo_cnpj_x, campo_cnpj_y = 728, 570
 botao_confirmar_x, botao_confirmar_y = 683, 618
-botao_leads_x, botao_leads_y = 588, 173
-botao_novo_lead_x, botao_novo_lead_y = 674, 236
-botao_cancelar_x, botao_cancelar_y = 1143, 118
-
+botao_leads_x, botao_leads_y = 591, 210
+botao_novo_lead_x, botao_novo_lead_y = 674, 270
+botao_cancelar_x, botao_cancelar_y = 1143, 151
+# botao_conta_aberta_x, botao_conta_aberta_y = 930,465
+# botao não funciona, precisa colocar pra automação dar refresh na página
+#  
 # Email padrão aplicado quando um contato não possui email
 email_padrao = 'empresario@gmail.com'
 
@@ -97,6 +99,8 @@ def btn_clicked():
             try:
                 # Detecta automaticamente se o Salesforce exibiu erro de CNPJ já cadastrado
                 cnpj_indicado = pyautogui.locateOnScreen('print_cnpj_indicado.png',confidence=0.55)
+                # Detecta automaticamente se o Salesforce exibiu tela de conta aberta
+                conta_aberta = pyautogui.locateOnScreen('print_conta_aberta.png', confidence=0.55)
 
                 if cnpj_indicado:
                     print(f'Contato {contato} já estava indicado!')
@@ -104,6 +108,12 @@ def btn_clicked():
 
                     pyautogui.click(botao_cancelar_x, botao_cancelar_y)
                     time.sleep(3)
+
+                elif conta_aberta:
+                    print(f'Contato {contato} estava com conta aberta!')
+                    tabela.at[index, "STATUS"] = "Conta aberta"
+
+                    pyautogui.hotkey('ctrl', 'f5')
 
                 else:
                     print(f"Lead {contato} indicado com sucesso!")
