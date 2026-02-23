@@ -20,7 +20,7 @@ campo_cnpj_x, campo_cnpj_y = 728, 570
 botao_confirmar_x, botao_confirmar_y = 683, 618
 botao_leads_x, botao_leads_y = 591, 210
 botao_novo_lead_x, botao_novo_lead_y = 674, 270
-botao_cancelar_x, botao_cancelar_y = 1143, 151
+botao_cancelar_x, botao_cancelar_y = 1144, 151
 # botao_conta_aberta_x, botao_conta_aberta_y = 930,465
 # botao não funciona, precisa colocar pra automação dar refresh na página
   
@@ -100,7 +100,7 @@ def btn_clicked():
                 # Detecta automaticamente se o Salesforce exibiu erro de CNPJ já cadastrado
                 cnpj_indicado = pyautogui.locateOnScreen('print_cnpj_indicado.png',confidence=0.55)
                 # Detecta automaticamente se o Salesforce exibiu tela de conta aberta
-                conta_aberta = pyautogui.locateOnScreen('print_conta_aberta.png', confidence=0.55)
+                # conta_aberta = pyautogui.locateOnScreen('print_conta_aberta.png', confidence=0.55)
 
                 if cnpj_indicado:
                     print(f'Contato {contato} já estava indicado!')
@@ -109,12 +109,12 @@ def btn_clicked():
                     pyautogui.click(botao_cancelar_x, botao_cancelar_y)
                     time.sleep(3)
 
-                elif conta_aberta:
-                    print(f'Contato {contato} estava com conta aberta!')
-                    tabela.at[index, "STATUS"] = "Conta aberta"
+                    #if conta_aberta:
+                        #print(f'Contato {contato} estava com conta aberta!')
+                        #tabela.at[index, "STATUS"] = "Conta aberta"
 
-                    pyautogui.hotkey('ctrl', 'f5')
-                    time.sleep(5)
+                        #pyautogui.hotkey('ctrl', 'f5')
+                        #time.sleep(5)
 
                 else:
                     print(f"Lead {contato} indicado com sucesso!")
